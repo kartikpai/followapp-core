@@ -28,6 +28,11 @@ public class CallingGroupController {
         return Optional.ofNullable(callingGroupRepository.createNewGroup(callingGroup));       
     }
     
+    @PostMapping(path = "/update/{id}")
+    public @ResponseBody  Optional<CallingGroup> updateGroup(@RequestBody CallingGroup callingGroup,@PathVariable Integer id) {        	        	
+        return Optional.ofNullable(callingGroupRepository.updateGroup(callingGroup,id));       
+    }
+    
     @PostMapping(path = "/update-group-membership")
     public @ResponseBody String updateGroupMembership(@RequestBody CallingGroupUpdateMembershipRequest callingGroupUpdateMembershipRequest) {        	        	
         callingGroupRepository.updateGroupMembership(callingGroupUpdateMembershipRequest);
